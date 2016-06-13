@@ -1,0 +1,59 @@
+div{
+	padding: 0px;
+}
+
+#content {
+	margin-top: 95px;
+}
+
+.remove-padding {
+	padding: 0px;
+}
+
+label {
+	font-weight: normal;
+}
+
+p {
+	margin: 0px;
+}
+
+a.list-group-item {
+	text-align: center;
+	color: #FF6F00;
+	background-color: #000;
+}
+
+a.list-group-item:hover {
+	background: #FFF;
+	color: #1276d8;
+}
+
+a.list-group-item.active {	
+	color: #1276d8;
+	background-color: #FFF;
+	border-color: #FFF;
+}
+
+.navbar {
+	margin-bottom: 0px;
+	height: 90px;
+	border-radius: 0px;
+	background-color: white;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.10);
+}
+
+#verticalNav {
+	height: 100vh;
+	width: 230px;
+	position: fixed;
+	background-color: #1276d8;
+}
+
+#navLogo{
+	width: 300px;
+}
+
+#mainContent {
+	margin-left: 228px;
+}
