@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class SecondPageController{
+public class Add_Employee_Controller{
 	
-	@RequestMapping("/secondpage")
+	@RequestMapping("/add_employee")
 	public ModelAndView secondPage() {
 		
 		String[] msg = {"Jason", "Bajade"};
