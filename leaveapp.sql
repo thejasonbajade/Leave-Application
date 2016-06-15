@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `leaveapp` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE  IF NOT EXISTS `leaveapp` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `leaveapp`;
 -- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
 --
@@ -27,11 +27,12 @@ DROP TABLE IF EXISTS `Comments`;
 CREATE TABLE `Comments` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Comment` text,
+  `Date` datetime DEFAULT NULL,
   `LeaveHistory_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`,`LeaveHistory_ID`),
   KEY `fk_Comments_LeaveHistory1_idx` (`LeaveHistory_ID`),
   CONSTRAINT `fk_Comments_LeaveHistory1` FOREIGN KEY (`LeaveHistory_ID`) REFERENCES `LeaveHistory` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +42,35 @@ CREATE TABLE `Comments` (
 LOCK TABLES `Comments` WRITE;
 /*!40000 ALTER TABLE `Comments` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Credits`
+--
+
+DROP TABLE IF EXISTS `Credits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Credits` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `VLCredits` float DEFAULT '3.75',
+  `SLCredits` float DEFAULT '3.75',
+  `ELCredits` float DEFAULT '3',
+  `SPCredits` float DEFAULT '7',
+  `Employee_ID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`,`Employee_ID`),
+  KEY `fk_Credits_Employee1_idx` (`Employee_ID`),
+  CONSTRAINT `fk_Credits_Employee1` FOREIGN KEY (`Employee_ID`) REFERENCES `Employee` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Credits`
+--
+
+LOCK TABLES `Credits` WRITE;
+/*!40000 ALTER TABLE `Credits` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Credits` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -54,7 +84,7 @@ CREATE TABLE `Department` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DepartmentName` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +93,6 @@ CREATE TABLE `Department` (
 
 LOCK TABLES `Department` WRITE;
 /*!40000 ALTER TABLE `Department` DISABLE KEYS */;
-INSERT INTO `Department` VALUES (1,'Accounting'),(2,'Human Resource'),(3,'Consulting'),(4,'Marketing');
 /*!40000 ALTER TABLE `Department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,21 +106,18 @@ DROP TABLE IF EXISTS `Employee`;
 CREATE TABLE `Employee` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(45) DEFAULT NULL,
-  `MiddleName` varchar(45) DEFAULT NULL,
   `LastName` varchar(45) DEFAULT NULL,
-  `SLCredits` float DEFAULT '0',
-  `VLCredits` float DEFAULT '0',
-  `ELCredits` float DEFAULT '3',
   `EmploymentDate` date DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
   `ContactNo` varchar(45) DEFAULT NULL,
-  `EmploymentStatus` binary(1) NOT NULL,
+  `EmploymentStatus` enum('Regular','Probationary') NOT NULL,
+  `Sex` enum('Male','Female') DEFAULT NULL,
+  `isSoloParent` tinyint(1) DEFAULT NULL,
   `Department_ID` int(11) NOT NULL,
-  `Sex` binary(1) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_Employee_Department1_idx` (`Department_ID`),
   CONSTRAINT `fk_Employee_Department1` FOREIGN KEY (`Department_ID`) REFERENCES `Department` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +126,6 @@ CREATE TABLE `Employee` (
 
 LOCK TABLES `Employee` WRITE;
 /*!40000 ALTER TABLE `Employee` DISABLE KEYS */;
-INSERT INTO `Employee` VALUES (1,'X','X','X',15,15,3,'2016-02-15','laksdjl','8555','\0',1,NULL);
 /*!40000 ALTER TABLE `Employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +144,7 @@ CREATE TABLE `Employee_has_Role` (
   KEY `fk_Employee_has_Role_Employee1_idx` (`Employee_ID`),
   CONSTRAINT `fk_Employee_has_Role_Employee1` FOREIGN KEY (`Employee_ID`) REFERENCES `Employee` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Employee_has_Role_Role1` FOREIGN KEY (`Role_ID`) REFERENCES `Role` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,12 +170,12 @@ CREATE TABLE `LeaveHistory` (
   `DateFiled` datetime DEFAULT NULL,
   `Reason` text,
   `Status` enum('Pending','SupervisorApproved','HRApproved','Cancelled','Not Taken') DEFAULT NULL,
-  `Employee_ID` int(11) NOT NULL,
   `LeaveType` enum('SL','VL','EL','SPL','OFFSET') DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `Employee_ID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`,`Employee_ID`),
   KEY `fk_LeaveHistory_Employee1_idx` (`Employee_ID`),
   CONSTRAINT `fk_LeaveHistory_Employee1` FOREIGN KEY (`Employee_ID`) REFERENCES `Employee` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,7 +198,7 @@ CREATE TABLE `Role` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Role` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,34 +207,7 @@ CREATE TABLE `Role` (
 
 LOCK TABLES `Role` WRITE;
 /*!40000 ALTER TABLE `Role` DISABLE KEYS */;
-INSERT INTO `Role` VALUES (1,'Administrator'),(2,'HR'),(3,'Supervisor'),(4,'Employee');
 /*!40000 ALTER TABLE `Role` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `SoloParent`
---
-
-DROP TABLE IF EXISTS `SoloParent`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `SoloParent` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `SPCredits` float DEFAULT '7',
-  `Employee_ID` int(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `fk_SoloParent_Employee1_idx` (`Employee_ID`),
-  CONSTRAINT `fk_SoloParent_Employee1` FOREIGN KEY (`Employee_ID`) REFERENCES `Employee` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `SoloParent`
---
-
-LOCK TABLES `SoloParent` WRITE;
-/*!40000 ALTER TABLE `SoloParent` DISABLE KEYS */;
-/*!40000 ALTER TABLE `SoloParent` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -221,4 +219,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-13 17:21:01
+-- Dump completed on 2016-06-13 17:33:50

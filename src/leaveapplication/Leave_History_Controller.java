@@ -5,15 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class Add_Employee_Controller{
+public class Leave_History_Controller{
 	
-	@RequestMapping("/secondpage")
+	@RequestMapping("/view_leave_history")
 	public ModelAndView secondPage() {
 		
-		String[] msg = {"Jason", "Bajade"};
-		
-		ModelAndView model = new ModelAndView("add_employee");
-		model.addObject("secondMessage", msg);
+		ModelAndView model = new ModelAndView("leave_history");
 		
 		return model;
 	}
