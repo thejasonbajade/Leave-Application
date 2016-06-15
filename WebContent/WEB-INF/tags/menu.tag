@@ -2,11 +2,11 @@
 <%@tag description="Menu Tag" pageEncoding="UTF-8"%>
 <div class="col-md-2 remove-padding" id="verticalNav">
 	<ul class="list-group">
-		<a href="account_info" role="button" class="list-group-item active"> 
+		<a href="account_info" role="button" class="list-group-item"> 
 			<i class="fa fa-user fa-3x" aria-hidden="true"></i>  <br/>
 			<span> Account Info </span> 
 		</a>
-		<a href="apply_leave" role="button" class="list-group-item"> 
+		<a href="apply_leave" role="button" class="list-group-item active"> 
 			<i class="fa fa-pencil fa-3x" aria-hidden="true"></i> 
 			<p> Apply for Leave </p> 
 		</a>

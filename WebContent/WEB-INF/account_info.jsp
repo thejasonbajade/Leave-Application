@@ -6,12 +6,19 @@
 	<div class="row">
 		<t:menu/>
 		<div class="col-md-10" id="mainContent">
-			<t:leave_credits_display/>
 			<div class="col-md-12">
-				<h1> ${welcomeMessage} </h1>
-				<t:admin_tabs/>
+				<h1> Account Information </h1>
 				<div class="panel panel-default">
 					<div class="panel-body">
+						<t:account_details/>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<t:admin_tabs/>
+				<div class="panel panel-default" id="mainContentBottom">
+					<div class="panel-body">
+						<t:leave_credits_display/>
 					</div>
 				</div>
 			</div>	

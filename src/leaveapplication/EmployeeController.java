@@ -5,16 +5,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class Add_Employee_Controller{
+public class EmployeeController{
 	
 	@RequestMapping("/add_employee")
-	public ModelAndView secondPage() {
-		
-		String[] msg = {"Jason", "Bajade"};
+	public ModelAndView addEmployee() {
 		
 		ModelAndView model = new ModelAndView("add_employee");
-		model.addObject("secondMessage", msg);
 		
 		return model;
 	}
+	
+	@RequestMapping("/view_all_employees")
+	public ModelAndView viewAllEmployees() {
+		
+		ModelAndView model = new ModelAndView("employee_list");
+		
+		return model;
+	}
+	
 }

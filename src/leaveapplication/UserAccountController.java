@@ -5,12 +5,20 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class User_Account_Controller{
+public class UserAccountController{
 	
 	@RequestMapping("/account_info")
-	public ModelAndView helloWorld() {
+	public ModelAndView displayAccountInfo() {
+		
 		ModelAndView model = new ModelAndView("account_info");
-		model.addObject("welcomeMessage", "Hi Jason Bajade");
+		
+		return model;
+	}
+	
+	@RequestMapping("/edit_profile")
+	public ModelAndView editProfile() {
+		
+		ModelAndView model = new ModelAndView("edit_profile");
 		
 		return model;
 	}

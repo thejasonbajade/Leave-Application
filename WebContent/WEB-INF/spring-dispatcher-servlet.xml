@@ -13,19 +13,34 @@
  <context:component-scan base-package="leaveapplication"/>
  
  <bean id="viewResolver"
-    	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
-        <property name="prefix">
-            <value>/WEB-INF/</value>
-        </property>
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
+   	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+       <property name="prefix">
+           <value>/WEB-INF/</value>
+       </property>
+       <property name="suffix">
+           <value>.jsp</value>
+       </property>
  </bean>
+ 
+ <!--<bean id="dataSource" 
+ 	class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+ 	<property name="driverClassName">
+        <value>org.hsqldb.jdbcDriver</value>
+    </property>
+    <property name="url">
+        <value>org.hsqldb.jdbcDriver</value>
+    </property>
+    <property name="username">
+        <value></value>
+    </property>
+    <property name="password">
+        <value></value>
+    </property>
+ 	
+ </bean> -->
  
 <mvc:resources mapping="/assets/**" location="/assets/"  
 cache-period="31556926"/>
 
 <mvc:annotation-driven />
- 
-
 </beans>
