@@ -20,6 +20,9 @@
 			<img src='<c:url value="/assets/images/oandblogo.png" />' alt="Orange & Bronze Software Labs, Inc." title="Orange & Bronze Software Labs, Inc." id="navLogo">
 		</a>
 		</div>
+		<a href="login" role="button" title="Logout" id="navLogout">
+			<i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
+		</a>
 	</div> 
 </nav>
 	
