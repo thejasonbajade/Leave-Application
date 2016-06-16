@@ -59,6 +59,15 @@
 				</div>
 				
 				<div class="col-md-12">
+					<label class="col-md-4"> Reason </label>
+					<div class="col-md-8">
+						<p>
+							Reason here. . . .
+						</p>
+					</div>
+				</div>
+				
+				<div class="col-md-12">
 					<label class="col-md-4"> Comment </label>
 					<div class="col-md-8">
 						<p>
