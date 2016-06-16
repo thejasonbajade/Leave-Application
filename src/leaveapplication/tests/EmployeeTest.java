@@ -8,15 +8,6 @@ import org.junit.Test;
 
 public class EmployeeTest {
 	
-	private Employee employee;
-
-	@Test
-	public void employeeMustBeAddedToDatabase() throws Exception {
-		FakeEmployeeDB employeeDB = new FakeEmployeeDB();
-		employeeDB.addEmployee(employee);
-		assertFalse(employeeDB.isEmpty());
-	}
-	
 	@Test
 	public void nonAlphabeticCharacterInFirstNameRaisesException() throws Exception {
 		try {
