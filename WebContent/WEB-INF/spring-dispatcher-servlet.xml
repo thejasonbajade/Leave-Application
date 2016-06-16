@@ -22,7 +22,13 @@
        </property>
  </bean>
  
- <!--<bean id="dataSource" 
+  <!--<bean id="mailSender"
+ 	class="org.springframework.mail.javamail.JavaMailSenderImpl"
+ 	p:host="${mailserver.host}">
+ 	
+ 	
+ </bean>
+<bean id="dataSource" 
  	class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
  	<property name="driverClassName">
         <value>org.hsqldb.jdbcDriver</value>

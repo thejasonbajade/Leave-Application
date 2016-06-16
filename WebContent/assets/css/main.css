@@ -67,6 +67,7 @@ table thead th{
 	height: 100vh;
 	width: 125px;
 	position: fixed;
+	background-color:#212121;
 }
 .list-group-item,
 .list-group-item .active{

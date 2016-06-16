@@ -34,9 +34,17 @@
 							</div>
 							
 							<div class="form-group col-md-12">
+								<label class="col-md-4"> Status </label>
+								<div class="col-md-8">
+									<label class="radio-inline"><input type="radio" name="status">Probationary</label>
+									<label class="radio-inline"><input type="radio" name="status">Regular</label>
+								</div>
+							</div>
+							
+							<div class="form-group col-md-12">
 								<label class="col-md-4"> Email </label>
 								<div class="col-md-8">
-									<input type="text" class="form-control" value="jasonbajade@orangeandbronze.com">
+									<span>jasonbajade@orangeandbronze.com</span>
 								</div>
 							</div>
 							
