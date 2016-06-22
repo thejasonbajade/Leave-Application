@@ -10,6 +10,8 @@ public class Employee {
 	private String lastName;
 	private String phoneNumber;
 	private GregorianCalendar employmentDate;
+	private float slCredits;
+	private float vlCredits;
 	
 	public void setFirstName(String firstName) throws InvalidInputException {
 		checkIfNameContainsNumbers(firstName);
@@ -71,5 +73,21 @@ public class Employee {
 
 	public String getLastName() {
 		return lastName;
+	}
+
+	public float getSLCredits() {
+		return slCredits;
+	}
+
+	public void gainSLCredits() {
+		slCredits += 1.25;
+	}
+	
+	public float getVLCredits() {
+		return vlCredits;
+	}
+
+	public void gainVLCredits() {
+		vlCredits += 1.25;
 	}
 }
