@@ -15,10 +15,12 @@
 			<p> Leave History </p>
 		</a>
 		<a href="view_all_employees" role="button" class="list-group-item"> 
+			
 			<i class="fa fa-list-ul fa-3x" aria-hidden="true"></i> 
 			<p> Employee List </p>
 		</a>
 		<a href="view_all_leave_histories" role="button" class="list-group-item"> 
+			<span class="badge">5</span>
 			<i class="fa fa-list-alt fa-3x" aria-hidden="true"></i> 
 			<p> Leave List </p>
 		</a>

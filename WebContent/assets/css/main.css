@@ -80,14 +80,7 @@ a.list-group-item {
 	padding: 14px 0px;
 	border-left: 6px solid #37474F;
 }
-/*a.list-group-item:link {
-	color: #FFF;
-	background-color: #1276d8;
-}*/
-/*a.list-group-item:visited {
-	color: #FFF;
-	background-color: #1276d8;
-}*/
+
 a.list-group-item:hover {
 	background-color: #212121;
 	border-left-color:#FF9800;
@@ -104,4 +97,19 @@ a.list-group-item.active:hover {
 	background-color: #FFF;
 	border-color: #FFF;
 	border-left: 6px solid #FF9800;
+}
+
+#banner {
+	margin-top: 150px;
+}
+
+#banner,
+#banner a {
+	color: white;
+}
+
+#verticalNav .badge {
+	position:absolute; 
+	right:5px; 
+	background-color: #FF9800;
 }

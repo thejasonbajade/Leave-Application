@@ -14,19 +14,15 @@
 <body id="index">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12" id=banner>
 				<div class="col-md-8 col-md-offset-2">
-					<h2 class="white"> LEAVE SUBMISSION AND AUTHORIZATION SYSTEM </h2>
-					<!--<h4 class="white"> Orange &amp; Bronze Software Labs, Inc. </h4>-->
+					<h2> LEAVE SUBMISSION AND AUTHORIZATION SYSTEM </h2>
+					<img src='<c:url value="/assets/images/oandblogo.png" />' class="img img-responsive" alt="Orange & Bronze" title="Orange & Bronze"/>
 				</div>
-				<div class="col-md-3 col-md-offset-6">
+				<div class="col-md-3 col-md-offset-7">
 					<a href="account_info" class="white"> 
-						<div class="col-md-5">
-							<span> Sign in with: </span> 
-						</div>
-						<div class="col-md-3">
-							<img src='<c:url value="/assets/images/google.png" />' class="img img-responsive" alt="Google" title="Google"/>
-						</div>
+						<span> Sign in with: </span> 
+						<img src='<c:url value="/assets/images/google.png" />' width = "50px" class="img" alt="Google" title="Google"/>	
 					</a>
 				</div>
 			</div>
